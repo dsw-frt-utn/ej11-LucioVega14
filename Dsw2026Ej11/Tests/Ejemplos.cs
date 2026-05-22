@@ -19,7 +19,7 @@ internal class Ejemplos
         casoList.AgregarAlumno(new Alumno(2, "Nacho Ferreyra", 7.0));
         casoList.AgregarAlumno(new Alumno(3, "Martina Manzur", 9.2));
 
-        Console.WriteLine("-- Lista de alumnos --");
+        Console.WriteLine("***** Lista de alumnos *****");
         foreach (Alumno a in casoList.GetAlumnos())
             Console.WriteLine(a);
 
@@ -30,12 +30,12 @@ internal class Ejemplos
         Console.WriteLine($"Búsqueda 'Lucio Vega': {(noEncontrado == null ? "No existe" : noEncontrado.ToString())}");
 
         casoList.EliminarAlumno(encontrado);
-        Console.WriteLine("\n-- Lista tras eliminar a Nacho --");
+        Console.WriteLine("\n***** Lista tras eliminar a Nacho *****");
         foreach (Alumno a in casoList.GetAlumnos())
             Console.WriteLine(a);
 
         casoList.EliminarEnPosicion(0);
-        Console.WriteLine("\n-- Lista tras eliminar el primer elemento --");
+        Console.WriteLine("\n***** Lista tras eliminar el primer elemento *****");
         foreach (Alumno a in casoList.GetAlumnos())
             Console.WriteLine(a);
     }
@@ -52,7 +52,7 @@ internal class Ejemplos
         casoDictionary.AgregarAlumno(new Alumno(102, "Nacho Ferreyra", 7.0));
         casoDictionary.AgregarAlumno(new Alumno(103, "Martina Manzur", 9.2));
 
-        Console.WriteLine("-- Diccionario de alumnos --");
+        Console.WriteLine("***** Diccionario de alumnos *****");
         foreach (var par in casoDictionary.GetAlumnos())
             Console.WriteLine($"Legajo {par.Key}: {par.Value}");
 
@@ -73,8 +73,8 @@ internal class Ejemplos
     {
         CasoLinq casoLinq = new CasoLinq();
 
-        Console.WriteLine($"Primer libro:   {casoLinq.GetPrimero()}");
-        Console.WriteLine($"Último libro:   {casoLinq.GetUltimo()}");
+        Console.WriteLine($"Primer libro:   {casoLinq.GetPrimero().Titulo}");
+        Console.WriteLine($"Último libro:   {casoLinq.GetUltimo().Titulo}");
         Console.WriteLine($"Total precios:  {casoLinq.GetTotalPrecios():C}");
         Console.WriteLine($"Promedio:       {casoLinq.GetPromedioPrecios():F2}");
 
@@ -82,18 +82,18 @@ internal class Ejemplos
         foreach (Libro l in casoLinq.GetListById())
             Console.WriteLine(l.Titulo);
 
-        Console.WriteLine("\n-- Títulos y precios --");
+        Console.WriteLine("\n***** Títulos y precios *****");
         foreach (string s in casoLinq.GetLibros())
             Console.WriteLine(s);
 
-        Console.WriteLine($"\nMayor precio:  {casoLinq.GetMayorPrecio()}");
-        Console.WriteLine($"Menor precio:  {casoLinq.GetMenorPrecio()}");
+        Console.WriteLine($"\nMayor precio:  {casoLinq.GetMayorPrecio().Titulo}");
+        Console.WriteLine($"Menor precio:  {casoLinq.GetMenorPrecio().Titulo}");
 
-        Console.WriteLine("\n-- Libros sobre el promedio --");
+        Console.WriteLine("\n***** Libros sobre el promedio *****");
         foreach (Libro l in casoLinq.GetMayorPromedio())
             Console.WriteLine(l.Titulo);
 
-        Console.WriteLine("\n-- Libros ordenados por título (desc) --");
+        Console.WriteLine("\n***** Libros ordenados por título (desc) *****");
         foreach (Libro l in casoLinq.GetOrdenadosPorTitulo())
             Console.WriteLine(l.Titulo);
     }

@@ -34,13 +34,13 @@ public class CasoLinq
     {
         return (double)_libros.Average(l => l.Precio);
     }
-    public List<Libro> GetListById()
+    public IEnumerable<Libro> GetListById()
     {
-        return _libros.Where(l => l.Id > 15).ToList();
+        return _libros.Where(l => l.Id > 15);
     }
-    public List<string> GetLibros()
+    public IEnumerable<string> GetLibros()
     {
-        return _libros.Select(l => $"{l.Titulo} - {l.Precio:C}").ToList();
+        return _libros.Select(l => $"{l.Titulo} - {l.Precio:C}");
     }
     public Libro GetMayorPrecio()
     {
@@ -50,13 +50,13 @@ public class CasoLinq
     {
         return _libros.OrderBy(l => l.Precio).First();
     }
-    public List<Libro> GetMayorPromedio()
+    public IEnumerable<Libro> GetMayorPromedio()
     {
         decimal promedio = _libros.Average(l => l.Precio);
-        return _libros.Where(l => l.Precio > promedio).ToList();
+        return _libros.Where(l => l.Precio > promedio);
     }
-    public List<Libro> GetOrdenadosPorTitulo()
+    public IEnumerable<Libro> GetOrdenadosPorTitulo()
     {
-        return _libros.OrderByDescending(l => l.Titulo).ToList();
+        return _libros.OrderByDescending(l => l.Titulo);
     }
 }
